@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import Togglebutton from "./Togglebutton/Togglebutton";
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	return (
@@ -134,6 +135,10 @@ const Header = () => {
 							>
 								Blog
 							</Link>
+						</li>
+
+						<li>
+							<Togglebutton></Togglebutton>
 						</li>
 					</ul>
 
@@ -320,6 +325,9 @@ const Header = () => {
 												>
 													Blog
 												</NavLink>
+											</li>
+											<li>
+												<Togglebutton></Togglebutton>
 											</li>
 										</ul>
 									</nav>
