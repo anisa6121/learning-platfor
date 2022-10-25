@@ -64,6 +64,45 @@ const Header = () => {
 								Home
 							</NavLink>
 						</li>
+
+						<li>
+							<NavLink
+								to="/login"
+								aria-label="login"
+								title="login"
+								// className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+
+								className={({
+									isActive,
+								}) =>
+									isActive
+										? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+										: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+								}
+							>
+								Login
+							</NavLink>
+						</li>
+
+						<li>
+							<NavLink
+								to="/register"
+								aria-label="register"
+								title="register"
+								// className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+
+								className={({
+									isActive,
+								}) =>
+									isActive
+										? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+										: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+								}
+							>
+								Register
+							</NavLink>
+						</li>
+
 						<li>
 							<NavLink
 								to="/courses"
@@ -210,6 +249,44 @@ const Header = () => {
 													}
 												>
 													Home
+												</NavLink>
+											</li>
+
+											<li>
+												<NavLink
+													to="/login"
+													aria-label="login"
+													title="login"
+													// className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+
+													className={({
+														isActive,
+													}) =>
+														isActive
+															? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+															: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+													}
+												>
+													Login
+												</NavLink>
+											</li>
+
+											<li>
+												<NavLink
+													to="/register"
+													aria-label="register"
+													title="register"
+													// className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+
+													className={({
+														isActive,
+													}) =>
+														isActive
+															? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+															: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+													}
+												>
+													Register
 												</NavLink>
 											</li>
 											<li>
