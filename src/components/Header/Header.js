@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	return (
-		<div className="bg-gray-100">
+		<div className="bg-gray-300">
 			<div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
 				<div className="relative flex items-center justify-between">
 					<Link
@@ -66,9 +66,9 @@ const Header = () => {
 						</li>
 						<li>
 							<NavLink
-								to="/chart"
-								aria-label="Chart"
-								title="Chart"
+								to="/courses"
+								aria-label="Courses"
+								title="Courses"
 								className={({
 									isActive,
 								}) =>
@@ -77,7 +77,7 @@ const Header = () => {
 										: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
 								}
 							>
-								Chart
+								Courses
 							</NavLink>
 						</li>
 						<li>
@@ -214,9 +214,9 @@ const Header = () => {
 											</li>
 											<li>
 												<NavLink
-													to="/chart"
-													aria-label="Chart"
-													title="Chart"
+													to="/courses"
+													aria-label="Courses"
+													title="Courses"
 													className={({
 														isActive,
 													}) =>
@@ -225,7 +225,7 @@ const Header = () => {
 															: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
 													}
 												>
-													Chart
+													Courses
 												</NavLink>
 											</li>
 											<li>
