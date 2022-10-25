@@ -262,7 +262,7 @@ const Header = () => {
 													to="/login"
 													aria-label="login"
 													title="login"
-													// className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+												
 
 													className={({
 														isActive,
@@ -281,7 +281,7 @@ const Header = () => {
 													to="/register"
 													aria-label="register"
 													title="register"
-													// className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+													
 
 													className={({
 														isActive,
