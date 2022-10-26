@@ -9,10 +9,12 @@ const Register = () => {
 	const handleSubmit = event => {
 	  event.preventDefault()
 
-		const name = event.target.name.value;
-		const photoURL = event.target.photoURL.value;
-		const email = event.target.email.value;
-		const password = event.target.password.value;
+		
+		const form = event.target
+		const name = form.name.value;
+		const photoURL = form.photoURL.value;
+		const email = form.email.value;
+		const password = form.password.value;
 
 		console.log(name, photoURL, email, password)
 		createUser(email, password)
@@ -20,6 +22,8 @@ const Register = () => {
 			.then(result => {
 				const user = result.user 
 				console.log(user)
+
+				form.reset()
 			})
 		
 			.catch(error => {

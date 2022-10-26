@@ -1,19 +1,39 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
 
+	const { signIn } = useContext(AuthContext)
+	
+	const navigate = useNavigate()
+
 		const handleSubmit = (event) => {
 			event.preventDefault();
-
+			const form = event.target
+			const email = form.email.value;
+			const password = form.password.value;
 			
-			const email = event.target.email.value;
-			const password = event.target.password.value;
+			
 
-			console.log( email, password);
+			console.log(email, password);
+			
+
+			signIn(email, password)
+				.then((result) => {
+					const user = result.user;
+					console.log(user);
+
+					form.reset()
+
+					navigate('/')
+				})
+
+				.catch((error) => {
+					console.log(error);
+				});
 		};
 
     const { providerLogin } = useContext(AuthContext);
@@ -66,6 +86,7 @@ const Login = () => {
 							Email address
 						</label>
 						<input
+							required
 							type="email"
 							name="email"
 							id="email"
@@ -75,6 +96,7 @@ const Login = () => {
 					</div>
 					<div className="space-y-2">
 						<input
+							required
 							type="password"
 							name="password"
 							id="password"
