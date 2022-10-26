@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import './Header.css'
 import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import AuthProvider, { AuthContext } from "../Context/AuthProvider/AuthProvider";
-import Togglebutton from "./Togglebutton/Togglebutton";
+
+import { FaUser } from 'react-icons/fa';
+import Togglebutton from "../../Others/Togglebutton/Togglebutton";
 const Header = () => {
 
 	
@@ -53,15 +56,12 @@ const Header = () => {
 						</span>
 					</Link>
 					<ul className="flex items-center hidden space-x-8 lg:flex">
-
-
-
 						<li>
 							<NavLink
 								to="/login"
 								aria-label="login"
 								title="login"
-						className={({
+								className={({
 									isActive,
 								}) =>
 									isActive
@@ -69,12 +69,43 @@ const Header = () => {
 										: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
 								}
 							>
-								Login 
+								Login
 							</NavLink>
 						</li>
-						<li>  
-							{user.displayName}
-</li>
+
+						<div class="tooltip">
+							{user?.photoURL ? (
+								<img
+									className="rounded-full w-10"
+									src={
+										user?.photoURL
+									}
+									alt=""
+								/>
+							)  : (
+								<FaUser></FaUser>
+							)}
+							
+							<span class="tooltiptext">
+								{user?.displayName}
+							</span>
+						</div>
+
+						<li>
+							{/* {user?.displayName} */}
+							{/* {user?.photoURL ? (
+								<img
+									className=" rounded-full w-10"
+									src={
+										user.photoURL
+									}
+									alt=""
+								/>
+							) : (
+								<FaUser></FaUser>
+							)} */}
+						</li>
+
 						<li>
 							<NavLink
 								to="/register"

@@ -11,31 +11,30 @@ const Register = () => {
 			</div>
 
 			<form
-				novalidate=""
+				noValidate=""
 				action=""
 				className="space-y-8 ng-untouched ng-pristine ng-valid"
 			>
 				<div className="space-y-2">
-					<label  className="block text-sm">
-						Name
-					</label>
+					<label className="block text-sm">Name</label>
 					<input
 						type="text"
 						name="name"
 						placeholder="Enter Your Name"
 						className="w-full px-3 py-2 border rounded-md focus:dark:border-violet-400"
 					/>
-                </div>
-                
+				</div>
 
 				<div className="space-y-2">
-					<label for="Photo URL" className="block text-sm">
-				Photo URL
+					<label
+						htmlFor="Photo URL"
+						className="block text-sm"
+					>
+						Photo URL
 					</label>
 					<input
 						type="email"
 						name="photoURL"
-						
 						placeholder="Photo URL"
 						className="w-full px-3 py-2 border rounded-md focus:dark:border-violet-400"
 					/>
@@ -44,7 +43,7 @@ const Register = () => {
 				<div className="space-y-4">
 					<div className="space-y-2">
 						<label
-							for="email"
+							htmlFor="email"
 							className="block text-sm"
 						>
 							Email address

@@ -1,7 +1,30 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
+
+    const { providerLogin } = useContext(AuthContext);
+
+
+
+    const googleProvider = new GoogleAuthProvider()
+    
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            
+            .then((result) => { 
+                const user = result.user
+                console.log(user);
+            })
+
+             .catch (e => {
+             console.error(e)
+             })
+
+    }
     return (
 		<div className="mx-auto mt-4 w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100 mb-3">
 			<h2 className="mb-3 text-3xl font-semibold text-center">
@@ -19,7 +42,7 @@ const Login = () => {
 				</Link>
 			</div>
 			<form
-				novalidate=""
+				noValidate=""
 				action=""
 				className="space-y-8 ng-untouched ng-pristine ng-valid"
 			>
@@ -71,10 +94,9 @@ const Login = () => {
 				<hr className="w-full" />
 			</div>
 
-            
-            <div className="my-6 space-y-4">
-                
+			<div className="my-6 space-y-4">
 				<button
+					onClick={handleGoogleSignIn}
 					aria-label="Login with Google"
 					type="button"
 					className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
