@@ -18,7 +18,7 @@ const Courses = () => {
 				<div className="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-2 ">
 					{allCourses.map((Course) => (
                         <Allcourses
-                        key={Course.id}
+                        key={Course._id}
                         Course ={Course}
                         ></Allcourses>
 					))}

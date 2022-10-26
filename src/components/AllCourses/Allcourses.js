@@ -20,7 +20,7 @@ console.log(Course)
 				{description.length > 150 ? 
 					<>
 						{description.slice(0, 150) + "..."}
-						<Link to={`/course/${_id}`}>
+						<Link className='text-red-400' to={`/course/${_id}`}>
 							Read More
 						</Link>
 					</>
