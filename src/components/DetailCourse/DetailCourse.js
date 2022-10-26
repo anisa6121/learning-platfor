@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-
+import { AiOutlineDownload } from "react-icons/ai";
 const DetailCourse = () => {
     const Coursedetails = useLoaderData();
     console.log(Coursedetails)
@@ -11,7 +11,11 @@ const DetailCourse = () => {
 				<div className="flex items-center">
 					<p className="text-2xl">{title}</p>
 				</div>
-				<p>See All</p>
+			
+				<p className='text-3xl'>
+				
+					<AiOutlineDownload></AiOutlineDownload>
+				</p>
 			</div>
 			<div className="space-y-4">
 				<div className="space-y-2">
