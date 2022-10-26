@@ -18,11 +18,16 @@ const RightsideNav = () => {
 				All Course{courses.length}
 			</h1>
 			{courses.map((course) => (
-				<p className="m-2 text-2xl" key={course.id}>
-					<Link to={`/course/${course.id}`}>{course.name}</Link>
+				<p
+					className="m-2 text-2xl underline  decoration-blue-500"
+					key={course.id}
+				>
+					<Link to={`/course/${course.id}`}>
+						{course?.name}
+					</Link>
 				</p>
 			))}
-		</div>   
+		</div>
     );
 };
 

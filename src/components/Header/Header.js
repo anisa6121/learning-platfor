@@ -1,8 +1,14 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
+import AuthProvider, { AuthContext } from "../Context/AuthProvider/AuthProvider";
 import Togglebutton from "./Togglebutton/Togglebutton";
 const Header = () => {
+
+	
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+	const { user } = useContext(AuthContext);
 	return (
 		<div className="bg-gray-300">
 			<div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -47,33 +53,15 @@ const Header = () => {
 						</span>
 					</Link>
 					<ul className="flex items-center hidden space-x-8 lg:flex">
-						<li>
-							<NavLink
-								to="/home"
-								aria-label="Home"
-								title="Home"
-								
 
-								className={({
-									isActive,
-								}) =>
-									isActive
-										? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-										: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-								}
-							>
-								Home
-							</NavLink>
-						</li>
+
 
 						<li>
 							<NavLink
 								to="/login"
 								aria-label="login"
 								title="login"
-								// className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-
-								className={({
+						className={({
 									isActive,
 								}) =>
 									isActive
@@ -81,17 +69,17 @@ const Header = () => {
 										: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
 								}
 							>
-								Login
+								Login 
 							</NavLink>
 						</li>
-
+						<li>  
+							{user.displayName}
+</li>
 						<li>
 							<NavLink
 								to="/register"
 								aria-label="register"
 								title="register"
-								// className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-
 								className={({
 									isActive,
 								}) =>
@@ -101,6 +89,22 @@ const Header = () => {
 								}
 							>
 								Register
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to="/home"
+								aria-label="Home"
+								title="Home"
+								className={({
+									isActive,
+								}) =>
+									isActive
+										? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+										: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+								}
+							>
+								Home
 							</NavLink>
 						</li>
 
@@ -242,28 +246,9 @@ const Header = () => {
 										<ul className="space-y-4">
 											<li>
 												<NavLink
-													to="/home"
-													aria-label="Home"
-													title="Home"
-													className={({
-														isActive,
-													}) =>
-														isActive
-															? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-															: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-													}
-												>
-													Home
-												</NavLink>
-											</li>
-
-											<li>
-												<NavLink
 													to="/login"
 													aria-label="login"
 													title="login"
-												
-
 													className={({
 														isActive,
 													}) =>
@@ -281,8 +266,6 @@ const Header = () => {
 													to="/register"
 													aria-label="register"
 													title="register"
-													
-
 													className={({
 														isActive,
 													}) =>
@@ -295,6 +278,23 @@ const Header = () => {
 												</NavLink>
 											</li>
 											<li>
+												<li>
+													<NavLink
+														to="/home"
+														aria-label="Home"
+														title="Home"
+														className={({
+															isActive,
+														}) =>
+															isActive
+																? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+																: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+														}
+													>
+														Home
+													</NavLink>
+												</li>
+
 												<NavLink
 													to="/courses"
 													aria-label="Courses"

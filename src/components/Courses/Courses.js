@@ -14,7 +14,7 @@ const Courses = () => {
 					<RightsideNav></RightsideNav>
 				</div>
 
-				{/* <div className="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg"> */}
+			
 				<div className="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-2 ">
 					{allCourses.map((Course) => (
                         <Allcourses
