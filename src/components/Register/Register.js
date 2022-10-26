@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Register = () => {
 
-	const { createUser } = useContext(AuthContext);
+	const { createUser, updateUserProfile } = useContext(AuthContext);
+
+	const [error, setError] = useState("");
 	const handleSubmit = event => {
 	  event.preventDefault()
 
@@ -22,14 +24,31 @@ const Register = () => {
 			.then(result => {
 				const user = result.user 
 				console.log(user)
-
+			
+				
+			
+				setError("")
 				form.reset()
+				handleUserProfile(name, photoURL);
 			})
 		
 			.catch(error => {
-			console.log(error)
+				console.log(error)
+				setError(error.message);
+				
 		})
- }
+	}
+	
+	const handleUserProfile = (name, photoURL) => {
+
+		const profile = {
+			displayName: name,
+			photoURL: photoURL,
+		};
+		updateUserProfile(profile)
+			.then(() => {})
+			.catch((e) => console.error(e));
+	}
    
 
     return (
@@ -55,6 +74,7 @@ const Register = () => {
 							Name
 						</label>
 						<input
+							required
 							type="text"
 							name="name"
 							id="name"
@@ -69,9 +89,10 @@ const Register = () => {
 							htmlFor="photoURL"
 							className="block mb-2 text-sm"
 						>
-							Photo 
+							Photo
 						</label>
 						<input
+							required
 							type="text"
 							name="photoURL"
 							id="photoURL"
@@ -139,6 +160,7 @@ const Register = () => {
 					</Link>
 				</div>
 			</form>
+			<p className="text-lg  text-white-700">{error}</p>
 		</div>
     );
 };
