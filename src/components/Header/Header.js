@@ -9,8 +9,8 @@ const Header = () => {
 				<div className="relative flex items-center justify-between">
 					<Link
 						to="/"
-						aria-label="proReader"
-						title="proReader"
+						aria-label="education"
+						title="education"
 						className="inline-flex items-center"
 					>
 						<svg
@@ -52,7 +52,7 @@ const Header = () => {
 								to="/home"
 								aria-label="Home"
 								title="Home"
-								// className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+								
 
 								className={({
 									isActive,

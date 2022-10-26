@@ -22,7 +22,7 @@ const RightsideNav = () => {
 					<Link to={`/course/${course.id}`}>{course.name}</Link>
 				</p>
 			))}
-		</div>
+		</div>   
     );
 };
 
