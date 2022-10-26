@@ -1,7 +1,33 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Register = () => {
+
+	const { createUser } = useContext(AuthContext);
+	const handleSubmit = event => {
+	  event.preventDefault()
+
+		const name = event.target.name.value;
+		const photoURL = event.target.photoURL.value;
+		const email = event.target.email.value;
+		const password = event.target.password.value;
+
+		console.log(name, photoURL, email, password)
+		createUser(email, password)
+		
+			.then(result => {
+				const user = result.user 
+				console.log(user)
+			})
+		
+			.catch(error => {
+			console.log(error)
+		})
+ }
+   
+
     return (
 		<div className="mx-auto mt-3 mb-3 flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-900 text-gray-100">
 			<div className="mb-8 text-center">
@@ -11,40 +37,50 @@ const Register = () => {
 			</div>
 
 			<form
+				onSubmit={handleSubmit}
 				noValidate=""
 				action=""
-				className="space-y-8 ng-untouched ng-pristine ng-valid"
+				className="space-y-12 ng-untouched ng-pristine ng-valid"
 			>
-				<div className="space-y-2">
-					<label className="block text-sm">Name</label>
-					<input
-						type="text"
-						name="name"
-						placeholder="Enter Your Name"
-						className="w-full px-3 py-2 border rounded-md focus:dark:border-violet-400"
-					/>
-				</div>
-
-				<div className="space-y-2">
-					<label
-						htmlFor="Photo URL"
-						className="block text-sm"
-					>
-						Photo URL
-					</label>
-					<input
-						type="email"
-						name="photoURL"
-						placeholder="Photo URL"
-						className="w-full px-3 py-2 border rounded-md focus:dark:border-violet-400"
-					/>
-				</div>
-
 				<div className="space-y-4">
-					<div className="space-y-2">
+					<div>
 						<label
 							htmlFor="email"
-							className="block text-sm"
+							className="block mb-2 text-sm"
+						>
+							Name
+						</label>
+						<input
+							type="text"
+							name="name"
+							id="name"
+							placeholder="Enter Your Name Here"
+							className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
+							data-temp-mail-org="0"
+						/>
+					</div>
+
+					<div>
+						<label
+							htmlFor="photoURL"
+							className="block mb-2 text-sm"
+						>
+							Photo 
+						</label>
+						<input
+							type="text"
+							name="photoURL"
+							id="photoURL"
+							placeholder="Enter Your Photo"
+							className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
+							data-temp-mail-org="0"
+						/>
+					</div>
+
+					<div>
+						<label
+							htmlFor="email"
+							className="block mb-2 text-sm"
 						>
 							Email address
 						</label>
@@ -52,27 +88,39 @@ const Register = () => {
 							type="email"
 							name="email"
 							id="email"
-							placeholder="Enter Your Email"
-							className="w-full px-3 py-2 border rounded-md focus:dark:border-violet-400"
+							placeholder="Enter Your Email Here"
+							className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
+							data-temp-mail-org="0"
 						/>
 					</div>
-
-					<div className="space-y-2">
+					<div>
+						<div className="flex justify-between mb-2">
+							<label
+								htmlFor="password"
+								className="text-sm"
+							>
+								Password
+							</label>
+						</div>
 						<input
 							type="password"
 							name="password"
 							id="password"
-							placeholder="Enter Password"
-							className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+							placeholder="Enter your password"
+							className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900"
 						/>
 					</div>
 				</div>
-				<button
-					type="button"
-					className="w-full px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900"
-				>
-					Submit
-				</button>
+				<div className="space-y-2">
+					<div>
+						<button
+							type="submit"
+							className="w-full px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900"
+						>
+							Sign Up
+						</button>
+					</div>
+				</div>
 
 				<div className="flex justify-between">
 					<p className="text-sm">

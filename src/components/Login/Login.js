@@ -6,6 +6,16 @@ import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
 
+		const handleSubmit = (event) => {
+			event.preventDefault();
+
+			
+			const email = event.target.email.value;
+			const password = event.target.password.value;
+
+			console.log( email, password);
+		};
+
     const { providerLogin } = useContext(AuthContext);
 
 
@@ -42,6 +52,7 @@ const Login = () => {
 				</Link>
 			</div>
 			<form
+				onSubmit={handleSubmit}
 				noValidate=""
 				action=""
 				className="space-y-8 ng-untouched ng-pristine ng-valid"
@@ -68,12 +79,12 @@ const Login = () => {
 							name="password"
 							id="password"
 							placeholder="Enter Password"
-							className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+							className="w-full px-3 py-2 border rounded-md dark:border-gray-700 bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
 						/>
 					</div>
 				</div>
 				<button
-					type="button"
+					type="submit"
 					className="w-full px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900"
 				>
 					Sign in
@@ -125,6 +136,10 @@ const Login = () => {
 					<p>Login with GitHub</p>
 				</button>
 			</div>
+
+			<p className="text-lg  text-white-700">
+				Dont have account?
+			</p>
 		</div>
     );
 }; 
