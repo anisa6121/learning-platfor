@@ -66,6 +66,7 @@ console.log("user inside stateChange", currentUser)
     },[])
 
     const authInfo = {
+         setLoading,
 		user,
 		providerLogin,
 		logOut,

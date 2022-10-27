@@ -9,47 +9,45 @@ const Login = () => {
 
 	const [userEmail, setUserEmail] = useState("");
 	
-	const { signIn, resetPassword, providerLogin, signInWithGit } =
+const { signIn, resetPassword, providerLogin, signInWithGit, setLoading } =
 		useContext(AuthContext);
 	
 	const [error, setError] = useState("");
 	const navigate = useNavigate()
 
+const location = useLocation()
 
-		const location = useLocation();
-
-	const from = location.state?.from?.pathname || "/";
+const from = location.state?.from?.pathname || "/";
 	
-		const handleSubmit = (event) => {
-			event.preventDefault();
-			const form = event.target
-			const email = form.email.value;
-			const password = form.password.value;
-			
-			
+const handleSubmit = (event) => {
+event.preventDefault();
+const form = event.target
+const email = form.email.value;
+const password = form.password.value;
 
-			console.log(email, password);
+	console.log(email, password);
 			
+signIn(email, password)
+.then((result) => {
+const user = result.user;
+console.log(user);
+form.reset()
+setError(""); 
+navigate(from,{replace:true});
+})
 
-			signIn(email, password)
-				.then((result) => {
-					const user = result.user;
-					console.log(user);
-				
-					
-					form.reset()
-						setError(""); 
-					
-					 navigate(from, { replace: true });
-				})
-
-				.catch((error) => {
-					console.log(error);
-						setError(error.message);
-				});
+.catch((error) => {
+console.log(error)
+setError(error.message)
+})
+			
+.finally (() => {
+	setLoading(false)
+})
+	
 	};
 	
-
+// resset password
 
 	  const handleReset = () => {
 			resetPassword(userEmail)
@@ -64,7 +62,7 @@ const Login = () => {
 	
   
 
-
+// Google sign In
 
     const googleProvider = new GoogleAuthProvider()
     
@@ -81,6 +79,7 @@ const Login = () => {
              })
 
 	}
+	// Github Sign In
 	const githubProvider = new GithubAuthProvider()
 
 	 const handleGithubSignIn = () => {
@@ -138,9 +137,10 @@ const Login = () => {
 							name="email"
 							id="email"
 							placeholder="Enter Your Email"
-							className="w-full px-3 py-2 border rounded-md focus:dark:border-violet-400"
+							className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:dark:border-violet-400"
 						/>
 					</div>
+
 					<div className="space-y-2">
 						<input
 							required
@@ -148,7 +148,7 @@ const Login = () => {
 							name="password"
 							id="password"
 							placeholder="Enter Password"
-							className="w-full px-3 py-2 border rounded-md dark:border-gray-700 bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+							className="w-full px-3 py-2 border rounded-md border-gray-700 bg-gray-900 text-gray-100 focus:dark:border-violet-400"
 						/>
 					</div>
 				</div>

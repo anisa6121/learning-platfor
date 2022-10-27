@@ -11,8 +11,6 @@ import ErrorPage from "../../Others/ErrorPage/ErrorPage";
 import Profile from "../../Others/Profile/Profile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
-
-
 export const routes = createBrowserRouter([
 	{
 		path: "/",
@@ -31,14 +29,16 @@ export const routes = createBrowserRouter([
 				path: "/courses",
 				element: <Courses></Courses>,
 				loader: () =>
-					fetch("http://localhost:5000/allcourse"),
+					fetch(
+						"https://education-server-sigma.vercel.app/allcourse"
+					),
 			},
 			{
 				path: "/course/:id",
 				element: <DetailCourse></DetailCourse>,
 				loader: ({ params }) =>
 					fetch(
-						`http://localhost:5000/course/${params.id}`
+						`https://education-server-sigma.vercel.app/course/${params.id}`
 					),
 			},
 			{
@@ -62,7 +62,7 @@ export const routes = createBrowserRouter([
 				),
 				loader: ({ params }) =>
 					fetch(
-						`http://localhost:5000/course/${params.id}`
+						`https://education-server-sigma.vercel.app/course/${params.id}`
 					),
 			},
 			{

@@ -1,18 +1,18 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const RightsideNav = () => {
-    const [courses, setcourses] = useState([])
+	const [courses, setcourses] = useState([]);
 
-    useEffect(() => {
-        fetch("http://localhost:5000/course")
+	useEffect(() => {
+		fetch("https://education-server-sigma.vercel.app/course")
 			.then((res) => res.json())
 			.then((data) => setcourses(data));
-    } ,[])
-    
-    return (
+	}, []);
+
+	return (
 		<div>
 			<h1 className="text-2xl text-blue-500">
 				All Course{courses.length}
@@ -28,11 +28,7 @@ const RightsideNav = () => {
 				</p>
 			))}
 		</div>
-    );
+	);
 };
 
 export default RightsideNav;
-
-
-
-
