@@ -4,7 +4,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 const DetailCourse = () => {
     const Coursedetails = useLoaderData();
     console.log(Coursedetails)
-      const { _id, description, image, title, price, Lesson } = Coursedetails; ;
+      const { _id, description, image, title, price, Lesson } = Coursedetails; 
     return (
 		<div className="m-auto mt-3 max-w-lg p-4 shadow-md bg-white-900 text-black-300">
 			<div className="flex justify-between pb-4 border-bottom">
