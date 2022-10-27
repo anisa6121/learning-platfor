@@ -164,17 +164,19 @@ const Header = () => {
 						</li>
 
 						<div class="tooltip">
-							{user?.photoURL ? (
-								<img
-									className="rounded-full w-10"
-									src={
-										user?.photoURL
-									}
-									alt=""
-								/>
-							) : (
-								<FaUser></FaUser>
-							)}
+							<Link to="/profile">
+								{user?.photoURL ? (
+									<img
+										className="rounded-full w-10"
+										src={
+											user?.photoURL
+										}
+										alt=""
+									/>
+								) : (
+									<FaUser></FaUser>
+								)}
+							</Link>
 
 							<span className="tooltiptext">
 								{user?.displayName}
@@ -341,7 +343,7 @@ const Header = () => {
 															onClick={
 																handleLogOut
 															}
-															className="px-5 py-2 bg-blue-700 text-white rounded-xl font-semibold"
+															className="md:px-5 md:py-2 bg-blue-700 text-white rounded-xl font-semibold"
 														>
 															Logout
 														</Link>
@@ -385,17 +387,19 @@ const Header = () => {
 											</li>
 
 											<div class="tooltip">
-												{user?.photoURL ? (
-													<img
-														className="rounded-full w-10"
-														src={
-															user?.photoURL
-														}
-														alt=""
-													/>
-												) : (
-													<FaUser></FaUser>
-												)}
+												<Link to="/profile">
+													{user?.photoURL ? (
+														<img
+															className="rounded-full w-10"
+															src={
+																user?.photoURL
+															}
+															alt=""
+														/>
+													) : (
+														<FaUser></FaUser>
+													)}
+												</Link>
 
 												<span className="tooltiptext">
 													{

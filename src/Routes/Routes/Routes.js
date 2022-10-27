@@ -8,6 +8,7 @@ import Register from "../../components/Register/Register";
 import Main from "../../layout/Main";
 import Checkout from "../../Others/Checkout/Checkout";
 import ErrorPage from "../../Others/ErrorPage/ErrorPage";
+import Profile from "../../Others/Profile/Profile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
@@ -63,6 +64,14 @@ export const routes = createBrowserRouter([
 					fetch(
 						`http://localhost:5000/course/${params.id}`
 					),
+			},
+			{
+				path: "/profile",
+				element: (
+					<PrivateRoute>
+						<Profile></Profile>
+					</PrivateRoute>
+				),
 			},
 		],
 	},
