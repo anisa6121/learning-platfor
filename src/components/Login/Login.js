@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
@@ -9,7 +9,8 @@ const Login = () => {
 
 	const [userEmail, setUserEmail] = useState("");
 	
-	const { signIn, resetPassword } = useContext(AuthContext);
+	const { signIn, resetPassword, providerLogin, signInWithGit } =
+		useContext(AuthContext);
 	
 	const [error, setError] = useState("");
 	const navigate = useNavigate()
@@ -61,7 +62,7 @@ const Login = () => {
 		};
 	
 	
-    const { providerLogin } = useContext(AuthContext);
+  
 
 
 
@@ -79,7 +80,21 @@ const Login = () => {
              console.error(e)
              })
 
-    }
+	}
+	const githubProvider = new GithubAuthProvider()
+
+	 const handleGithubSignIn = () => {
+			signInWithGit(githubProvider)
+				.then((result) => {
+					const user = result.user;
+					console.log(user);
+				})
+
+				.catch((e) => {
+					console.error(e);
+				});
+		};
+
     return (
 		<div className="mx-auto mt-4 w-full max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-900 text-gray-100 mb-3">
 			<h2 className="mb-3 text-3xl font-semibold text-center">
@@ -112,7 +127,12 @@ const Login = () => {
 						</label>
 
 						<input
-		onBlur={(event) =>setUserEmail(event.target.value)}
+							onBlur={(event) =>
+								setUserEmail(
+									event.target
+										.value
+								)
+							}
 							required
 							type="email"
 							name="email"
@@ -174,6 +194,7 @@ const Login = () => {
 					<p>Login with Google</p>
 				</button>
 				<button
+					onClick={handleGithubSignIn}
 					aria-label="Login with GitHub"
 					// role="button"
 					className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"

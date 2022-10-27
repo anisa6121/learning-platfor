@@ -17,6 +17,12 @@ const AuthProvider = ({ children }) => {
       setLoading(true)
 		return signInWithPopup(auth, provider);
     };  
+
+
+    const signInWithGit = (provider) => {
+        setLoading(true)
+        return signInWithPopup(auth, provider)
+    }
   
     
     const logOut = () => {
@@ -68,6 +74,7 @@ console.log("user inside stateChange", currentUser)
 		loading,
 		updateUserProfile,
 		resetPassword,
+		signInWithGit,
     };
     
 
