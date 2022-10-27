@@ -1,5 +1,5 @@
 - Project Name: Educational Platform
-- Link: https://educational-website-5a498.web.app/
+- Link: https://educational-website-5a498.firebaseapp.com/
 
  - 1. First i'm secure my firebase.config file using env variable.
 
