@@ -1,13 +1,15 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-
-	const { signIn} = useContext(AuthContext);
+	const [userEmail, setUserEmail] = useState("");
+	
+	const { signIn, resetPassword } = useContext(AuthContext);
 	
 	const [error, setError] = useState("");
 	const navigate = useNavigate()
@@ -44,8 +46,21 @@ const Login = () => {
 					console.log(error);
 						setError(error.message);
 				});
-		};
+	};
+	
 
+
+	  const handleReset = () => {
+			resetPassword(userEmail)
+				.then(() => {
+					toast.success(
+						"Reset link has been sent, please check your email"
+					);
+				})
+				.catch((error) => toast.error(error.message));
+		};
+	
+	
     const { providerLogin } = useContext(AuthContext);
 
 
@@ -95,7 +110,9 @@ const Login = () => {
 						>
 							Email address
 						</label>
+
 						<input
+		onBlur={(event) =>setUserEmail(event.target.value)}
 							required
 							type="email"
 							name="email"
@@ -125,7 +142,10 @@ const Login = () => {
 				<div className="flex justify-between">
 					<p className="text-sm">Forgot password?</p>
 
-					<button className="text-xs hover:underline">
+					<button
+						onClick={handleReset}
+						className="text-xs hover:underline"
+					>
 						Please reset your password
 					</button>
 				</div>
@@ -169,9 +189,7 @@ const Login = () => {
 				</button>
 			</div>
 
-			<p className="text-lg  text-white-700">
-				{error}
-			</p>
+			<p className="text-lg  text-white-700">{error}</p>
 		</div>
     );
 }; 

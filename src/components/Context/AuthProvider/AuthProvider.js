@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -38,8 +38,16 @@ const AuthProvider = ({ children }) => {
 
 
     const updateUserProfile = (profile) => {
+        setLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
+
+
+      const resetPassword = (email) => {
+		setLoading(true);
+		return sendPasswordResetEmail(auth, email);
+    };
+    
     useEffect(() => {
  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 console.log("user inside stateChange", currentUser)
@@ -59,6 +67,7 @@ console.log("user inside stateChange", currentUser)
 		signIn,
 		loading,
 		updateUserProfile,
+		resetPassword,
     };
     
 
