@@ -96,8 +96,9 @@ const Header = () => {
 								Courses
 							</NavLink>
 						</li>
+
 						<li>
-							<Link
+							<NavLink
 								to="/blog"
 								aria-label="Blog"
 								title="Blog"
@@ -110,8 +111,10 @@ const Header = () => {
 								}
 							>
 								Blog
-							</Link>
+							</NavLink>
 						</li>
+
+
 
 						<li>
 							{user?.uid ? (
