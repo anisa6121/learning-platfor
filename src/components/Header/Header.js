@@ -20,7 +20,7 @@ const Header = () => {
 		.catch(error => console.log(error))
 	}
 	return (
-		<div className="bg-gray-300">
+		<div className="bg-zinc-300">
 			<div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
 				<div className="relative flex items-center justify-between">
 					<Link
@@ -63,56 +63,6 @@ const Header = () => {
 						</span>
 					</Link>
 					<ul className="flex items-center hidden space-x-8 lg:flex">
-						<li>
-							{user?.uid ? (
-								<>
-									<Link
-										onClick={
-											handleLogOut
-										}
-										className=""
-									>
-										Logout
-									</Link>
-								</>
-							) : (
-								<div className="flex">
-									<li>
-										<NavLink
-											to="/login"
-											aria-label="login"
-											title="login"
-											className={({
-												isActive,
-											}) =>
-												isActive
-													? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-													: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-											}
-										>
-											Login
-										</NavLink>
-									</li>
-									<li className="ml-5">
-										<NavLink
-											to="/register"
-											aria-label="register"
-											title="register"
-											className={({
-												isActive,
-											}) =>
-												isActive
-													? "  font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-													: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-											}
-										>
-											Register
-										</NavLink>
-									</li>
-								</div>
-							)}
-						</li>
-
 						<li>
 							<NavLink
 								to="/home"
@@ -164,7 +114,53 @@ const Header = () => {
 						</li>
 
 						<li>
-							<Togglebutton></Togglebutton>
+							{user?.uid ? (
+								<>
+									<Link
+										onClick={
+											handleLogOut
+										}
+										className="px-5 py-2 bg-blue-700 text-white rounded-xl font-semibold"
+									>
+										Logout
+									</Link>
+								</>
+							) : (
+								<div className="flex lg:flex-row">
+									<li>
+										<NavLink
+											to="/login"
+											aria-label="login"
+											title="login"
+											className={({
+												isActive,
+											}) =>
+												isActive
+													? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+													: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+											}
+										>
+											Login
+										</NavLink>
+									</li>
+									<li className="ml-5">
+										<NavLink
+											to="/register"
+											aria-label="register"
+											title="register"
+											className={({
+												isActive,
+											}) =>
+												isActive
+													? "  font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+													: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+											}
+										>
+											Register
+										</NavLink>
+									</li>
+								</div>
+							)}
 						</li>
 
 						<div class="tooltip">
@@ -184,6 +180,10 @@ const Header = () => {
 								{user?.displayName}
 							</span>
 						</div>
+
+						<li>
+							<Togglebutton></Togglebutton>
+						</li>
 					</ul>
 
 					<div className="lg:hidden">
@@ -283,40 +283,7 @@ const Header = () => {
 										</div>
 									</div>
 									<nav>
-										<ul className="space-y-4">
-											<li>
-												<NavLink
-													to="/login"
-													aria-label="login"
-													title="login"
-													className={({
-														isActive,
-													}) =>
-														isActive
-															? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-															: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-													}
-												>
-													Login
-												</NavLink>
-											</li>
-
-											<li>
-												<NavLink
-													to="/register"
-													aria-label="register"
-													title="register"
-													className={({
-														isActive,
-													}) =>
-														isActive
-															? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-															: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-													}
-												>
-													Register
-												</NavLink>
-											</li>
+										<ul className="space-y-1">
 											<li>
 												<li>
 													<NavLink
@@ -366,6 +333,77 @@ const Header = () => {
 													Blog
 												</NavLink>
 											</li>
+
+											<li>
+												{user?.uid ? (
+													<>
+														<Link
+															onClick={
+																handleLogOut
+															}
+															className="px-5 py-2 bg-blue-700 text-white rounded-xl font-semibold"
+														>
+															Logout
+														</Link>
+													</>
+												) : (
+													<div className=" ">
+														<li>
+															<NavLink
+																to="/login"
+																aria-label="login"
+																title="login"
+																className={({
+																	isActive,
+																}) =>
+																	isActive
+																		? "font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+																		: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+																}
+															>
+																Login
+															</NavLink>
+														</li>
+														<li className="sm:ml-0">
+															<NavLink
+																to="/register"
+																aria-label="register"
+																title="register"
+																className={({
+																	isActive,
+																}) =>
+																	isActive
+																		? "  font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+																		: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+																}
+															>
+																Register
+															</NavLink>
+														</li>
+													</div>
+												)}
+											</li>
+
+											<div class="tooltip">
+												{user?.photoURL ? (
+													<img
+														className="rounded-full w-10"
+														src={
+															user?.photoURL
+														}
+														alt=""
+													/>
+												) : (
+													<FaUser></FaUser>
+												)}
+
+												<span className="tooltiptext">
+													{
+														user?.displayName
+													}
+												</span>
+											</div>
+
 											<li>
 												<Togglebutton></Togglebutton>
 											</li>
