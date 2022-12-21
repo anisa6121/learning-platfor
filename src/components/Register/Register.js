@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -8,6 +8,8 @@ const Register = () => {
 	const { createUser, updateUserProfile } = useContext(AuthContext);
 
 	const [error, setError] = useState("");
+
+	const navigate = useNavigate()
 	const handleSubmit = event => {
 	  event.preventDefault()
 
@@ -30,6 +32,7 @@ const Register = () => {
 				setError("")
 				form.reset()
 				handleUserProfile(name, photoURL);
+				navigate("/")
 			})
 		
 			.catch(error => {
@@ -141,7 +144,7 @@ const Register = () => {
 					<div>
 						<button
 							type="submit"
-							className="w-full px-8 py-3 font-semibold rounded-md bg-blue-600 text-white"
+							className="w-full px-8 py-3 font-semibold rounded-md bg-violet-500 text-white"
 						>
 							Sign Up
 						</button>
