@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import './Header.css'
 import { useContext } from "react";
-import { NavLink, Link } from "react-router-dom";
-import AuthProvider, { AuthContext } from "../Context/AuthProvider/AuthProvider";
+import { NavLink, Link} from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider/AuthProvider";
 
 import { FaUser } from 'react-icons/fa';
 import Togglebutton from "../../Others/Togglebutton/Togglebutton";
@@ -10,8 +10,10 @@ const Header = () => {
 
 	
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	
 
 	const { user, logOut } = useContext(AuthContext);
+
 
 
 	const handleLogOut = () => {
@@ -59,7 +61,7 @@ const Header = () => {
 						</svg>
 
 						<span className="ml-2 text-xl font-bold tracking-wide text-blue-800">
-							Education Platform
+							Education Platform is very helpfull
 						</span>
 					</Link>
 					<ul className="flex items-center hidden space-x-8 lg:flex">
