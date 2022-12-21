@@ -52,7 +52,7 @@ const Register = () => {
    
 
     return (
-		<div className="mx-auto mt-3 mb-3 flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-900 text-gray-100">
+		<div className="mx-auto mt-3 mb-3 flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-700 text-gray-100">
 			<div className="mb-8 text-center">
 				<h1 className="my-3 text-4xl font-bold">
 					Register
@@ -79,7 +79,8 @@ const Register = () => {
 							name="name"
 							id="name"
 							placeholder="Enter Your Name Here"
-							className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
+							className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-white
+							 text-gray-900"
 							data-temp-mail-org="0"
 						/>
 					</div>
@@ -97,7 +98,7 @@ const Register = () => {
 							name="photoURL"
 							id="photoURL"
 							placeholder="Enter Your Photo"
-							className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
+							className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-white text-gray-900"
 							data-temp-mail-org="0"
 						/>
 					</div>
@@ -114,7 +115,7 @@ const Register = () => {
 							name="email"
 							id="email"
 							placeholder="Enter Your Email Here"
-							className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
+							className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-white text-gray-900"
 							data-temp-mail-org="0"
 						/>
 					</div>
@@ -132,7 +133,7 @@ const Register = () => {
 							name="password"
 							id="password"
 							placeholder="Enter your password"
-							className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900"
+							className="w-full px-3 py-2 border rounded-md border-gray-300 bg-white focus:border-gray-900 text-gray-900"
 						/>
 					</div>
 				</div>
@@ -140,20 +141,20 @@ const Register = () => {
 					<div>
 						<button
 							type="submit"
-							className="w-full px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900"
+							className="w-full px-8 py-3 font-semibold rounded-md bg-blue-600 text-white"
 						>
 							Sign Up
 						</button>
 					</div>
 				</div>
 
-				<div className="flex justify-between">
+				<div className="flex justify-between text-orange-400">
 					<p className="text-sm">
 						Already have an account
 					</p>
 
 					<Link
-						className="text-xs hover:underline"
+						className=" hover:underline text-xl"
 						to="/login"
 					>
 						Login
