@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-		<section className="bg-lime-200 text-gray-100">
+		<section className="bg-white text-gray-100">
 			<div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 				<div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
 					<img
@@ -13,10 +13,10 @@ const Home = () => {
 					/>
 				</div>
 				<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-					<h1 className="text-5xl text-yellow-300 font-bold leading-none sm:text-6xl">
+					<h1 className="text-5xl text-orange-500 font-bold leading-none sm:text-6xl">
 						Online Education
 						<br />
-						<span className="text-violet-400 text-3xl">
+						<span className="text-violet-500 text-3xl">
 							Study anytime, wherever you are
 						</span>
 					</h1>
@@ -30,7 +30,7 @@ const Home = () => {
 						<Link
 							rel="noopener noreferrer"
 							to="/courses"
-							className="px-8 py-3 text-lg font-semibold  rounded-xl bg-violet-400 text-white-900"
+							className="px-8 py-3 text-lg font-semibold  rounded-xl bg-blue-700 text-white-900"
 						>
 							Our Courseses
 						</Link>

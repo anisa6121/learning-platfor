@@ -6,16 +6,32 @@ import { Link } from "react-router-dom";
 const RightsideNav = () => {
 	const [courses, setcourses] = useState([]);
 
+	const [loading, setLoading] = useState(false)
+
 	useEffect(() => {
 		fetch("https://education-server-sigma.vercel.app/course")
 			.then((res) => res.json())
-			.then((data) => setcourses(data));
+			.then((data) => {
+				setcourses(data)
+setLoading(false)
+
+			}
+				
+		)
+		setLoading(true)
 	}, []);
+
+if (loading) {
+	return (
+		<div className="w-16 mx-auto m-6 h-16 border-4 border-dashed rounded-full animate-spin border-black"></div>
+	);
+}
 
 	return (
 		<div>
 			<h1 className="text-2xl text-blue-500">
-				All Course{courses.length}
+				{/* All Course-{courses.length} */}
+				All Courses
 			</h1>
 			{courses.map((course) => (
 				<p

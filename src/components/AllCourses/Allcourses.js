@@ -7,7 +7,7 @@ console.log(Course)
 	return (
 		<div className="max-w-xs p-6 rounded-md shadow-md bg-white-900 text-gray-50 ">
 			<div className="pb-4  text-black">
-				<p className="text-2xl text-green-600"> {title}</p>
+				<p className="text-2xl font-bold text-green-600"> {title}</p>
 			</div>
 
 			<img
@@ -20,7 +20,7 @@ console.log(Course)
 				{description.length > 150 ? 
 					<>
 						{description.slice(0, 150) + "..."}
-						<Link className='text-red-400' to={`/course/${_id}`}>
+						<Link className='text-red-700' to={`/course/${_id}`}>
 							Read More
 						</Link>
 					</>

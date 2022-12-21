@@ -28,7 +28,7 @@ const DetailCourse = () => {
 
 				<div className="flex flex-col">
 					<p className="text-2xl">
-						Course Price: {price}
+						Course Price: ${price}
 					</p>
 					<p> Lesson: {Lesson}</p>
 				</div>
@@ -41,7 +41,7 @@ const DetailCourse = () => {
 				<Link to={`/checkout/${_id}`}>
 					<button
 						type="button"
-						className="flex items-center justify-center w-62 p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900"
+						className="flex items-center justify-center w-62 p-3 font-semibold tracking-wide rounded-md bg-pink-500 text-white"
 					>
 						Get premium access
 					</button>
